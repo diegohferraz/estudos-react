@@ -7,10 +7,22 @@ import Button from './button'
 import LikeButton from './like-button'
 
 class App  extends React.Component{
+
+    constructor () {
+        super()
+        
+        this.state = {
+            text: 'Teste State'
+        }
+    }
+
     render () {
         return (
             <div>
                 <Title name = 'Diego' age={28}/>
+                <h2 onClick = {() => ((
+                    this.setState({text: 'Vc CLicou'})
+                ))}>{this.state.text}</h2>
                 <Button handleClick = { () => alert('Clique no botao normal') }>
                     TEXTO
                 </Button>

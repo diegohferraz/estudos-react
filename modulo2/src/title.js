@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 class Title extends Component {
     render () {
         return(
-            <h1>Olá {`${this.props.name} ${this.props.lastName} - ${this.props.age} Anos!`}</h1>
+            <h1>Olá {`${this.props.name} ${this.props.lastName} - ${this.props.age}`}</h1>
         )
     }
 }
