@@ -9,9 +9,9 @@ class App  extends React.Component{
         return (
             <div>
                 <Title name = 'Diego' age={28}/>
-                {['blue', 'black', 'green'].map((square) => (
+                {['blue', 'black', 'green'].map((square, index) => (
                     <div>
-                        <Square key = {square} color = {square} />
+                        <Square key = {index} color = {square} />
                         <br/>
                     </div>
                 ))}
