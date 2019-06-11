@@ -2,12 +2,20 @@
 
 import React from 'react'
 import Title from './title'
+import Square from './square'
 
 class App  extends React.Component{
     render () {
         return (
             <div>
                 <Title name = 'Diego' age={28}/>
+                {['blue', 'black', 'green'].map((square) => (
+                    <div>
+                        <Square key = {square} color = {square} />
+                        <br/>
+                    </div>
+                ))}
+                <Square />
             </div>
         )
     }
