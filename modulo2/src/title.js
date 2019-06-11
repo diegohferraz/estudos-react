@@ -1,15 +1,28 @@
 'use strict'
 
-import React from 'react'
+import React, { Component } from 'react'
 
-const Title = (props) => (
-    <h1>Olá {`${props.name} ${props.lastName} - ${props.age} Anos!`}</h1>
-)
+class Title extends Component {
+    render () {
+        return(
+            <h1>Olá {`${this.props.name} ${this.props.lastName} - ${this.props.age} Anos!`}</h1>
+        )
+    }
+}
 
 Title.defaultProps = {
     name: 'Desconhecido',
     lastName: 'Sem Sobrenome'
 }
+
+// const Title = (props) => (
+//     <h1>Olá {`${props.name} ${props.lastName} - ${props.age} Anos!`}</h1>
+// )
+
+// Title.defaultProps = {
+//     name: 'Desconhecido',
+//     lastName: 'Sem Sobrenome'
+// }
 
 // const Title = React.createClass({
 //     getDefaultProps: function () {
