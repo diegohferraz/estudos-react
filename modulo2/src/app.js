@@ -5,6 +5,7 @@ import Title from './title'
 import Square from './square'
 import Button from './button'
 import LikeButton from './like-button'
+import Timer from './timer'
 
 class App  extends React.Component{
 
@@ -13,7 +14,8 @@ class App  extends React.Component{
         
         this.state = {
             text: 'Teste State',
-            color: 'cyan'
+            color: 'cyan',
+            showTimer: true
         }
     }
 
@@ -30,6 +32,12 @@ class App  extends React.Component{
                 ))}
                 <hr/>
 
+                {this.state.showTimer && <Timer />}
+                <Button handleClick = { () => this.setState({showTimer: !this.state.showTimer}) }>
+                    Show/Hide Timmer
+                </Button>
+
+                <hr/>
                 <Title name = 'Diego' age={28}/>
                 <h2 onClick = {() => ((
                     this.setState({text: 'Vc CLicou'})
