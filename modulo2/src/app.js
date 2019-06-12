@@ -15,7 +15,8 @@ class App  extends React.Component{
         this.state = {
             text: 'Teste State',
             color: 'cyan',
-            showTimer: true
+            showTimer: true,
+            time: 1
         }
     }
 
@@ -32,9 +33,12 @@ class App  extends React.Component{
                 ))}
                 <hr/>
 
-                {this.state.showTimer && <Timer />}
+                {this.state.showTimer && <Timer time={this.state.time} />}
                 <Button handleClick = { () => this.setState({showTimer: !this.state.showTimer}) }>
                     Show/Hide Timmer
+                </Button>
+                <Button handleClick = { () => this.setState({ time: 0 }) }>
+                    reset Timmer
                 </Button>
 
                 <hr/>
