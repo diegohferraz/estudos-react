@@ -8,7 +8,9 @@ class Form extends Component {
         
         this.state = {
             time: 0,
-            name: 'Diego'
+            name: 'Diego',
+            checked: false,
+            showContent: false
         }
 
         this.timmer;
@@ -29,11 +31,30 @@ class Form extends Component {
                 }}>
 
                 <input type="email" name="email" />
+                <br/>
                 <input 
                         type="text" 
                         name="name" 
                         value={this.state.name}
                         onChange={(e) => this.setState({ name: e.target.value })} />
+                <br/>
+                <label>
+                    <input 
+                        type="checkbox"
+                        checked={this.state.checked}
+                        onChange={
+                            () => { 
+                                this.setState({ 
+                                    checked: !this.state.checked 
+                                }, () => {
+                                    this.setState({ showContent: this.state.checked })
+                                }) 
+                            }
+                        }/>
+                        Mostrar conteudo
+                </label>
+                <br/>
+                { this.state.showContent && <div>Conteudo</div> }
 
                 <button type="submit" >SUBMIT</button>
             </form>
