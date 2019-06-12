@@ -12,13 +12,24 @@ class App  extends React.Component{
         super()
         
         this.state = {
-            text: 'Teste State'
+            text: 'Teste State',
+            color: 'cyan'
         }
     }
 
     render () {
         return (
             <div>
+                <Square color = {this.state.color} />
+                {['red', 'green', 'blue'].map((color) => (
+                    <Button 
+                            key={color} 
+                            handleClick = { () => this.setState({ color }) }>
+                        {color.toUpperCase()}
+                    </Button>
+                ))}
+                <hr/>
+
                 <Title name = 'Diego' age={28}/>
                 <h2 onClick = {() => ((
                     this.setState({text: 'Vc CLicou'})
