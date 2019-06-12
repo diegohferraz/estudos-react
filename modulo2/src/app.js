@@ -6,6 +6,7 @@ import Square from './square'
 import Button from './button'
 import LikeButton from './like-button'
 import Timer from './timer'
+import Form from './form'
 
 class App  extends React.Component{
 
@@ -23,6 +24,8 @@ class App  extends React.Component{
     render () {
         return (
             <div>
+                <Form />
+                <hr />
                 <Square color = {this.state.color} />
                 {['red', 'green', 'blue'].map((color) => (
                     <Button 
