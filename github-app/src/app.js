@@ -2,54 +2,45 @@
 
 import React from 'react'
 
+import Search from './components/search'
+import UserInfo from './components/user-info'
+import Actions from './components/actions'
+import Repos from './components/repositories'
+
 class App extends React.Component {
   render () {
     return (
       <div className='app'>
-        <div className='search'>
-          <input
-            type='search'
-            placeholder='digite o nome do usuario' />
-        </div>
-        <div className='user-info'>
-          <img src='https://avatars0.githubusercontent.com/u/3427663?v=4' />
-          <h1>
-            <a href='https://github.com/diegohferraz'>Diego Ferraz</a>
-          </h1>
 
-          <ul className='repos-info'>
-            <li>- Repositorios: 122</li>
-            <li>- Seguidores: 10</li>
-            <li>- Seguindo: 122</li>
-          </ul>
+        <Search />
+        <UserInfo />
+        <Actions />
+        <Repos
+          className='repos'
+          title='Repositórios:'
+          repos={[
+            { link: '#', name: 'Repo 1' }
+          ]} />
+        <Repos
+          className='starred'
+          title='Favoritos:'
+          repos={[
+            { link: '#', name: 'Repo 2' }
+          ]} />
 
-          <div className='actions'>
-            <button>Ver repositórios</button>
-            <button>Ver favoritos</button>
-          </div>
-
-          <div className='repos'>
-            <h2>Repositorios</h2>
-            <ul>
-              <li>
-                <a href='#'>Nome do Repositorio</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className='starred'>
-            <h2>Favoritos</h2>
-            <ul>
-              <li>
-                <a href='#'>Nome do Repositorio</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
       </div>
     )
   }
+}
+
+Repos.defaultProps = {
+  className: ''
+}
+
+Repos.propTypes = {
+  className: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  repos: React.PropTypes.array.isRequired
 }
 
 export default App
