@@ -15,4 +15,14 @@ const Repositories = ({ className, title, repos }) => (
   </div>
 )
 
+Repositories.defaultProps = {
+  className: ''
+}
+
+Repositories.propTypes = {
+  className: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  repos: React.PropTypes.array.isRequired
+}
+
 export default Repositories
