@@ -20,7 +20,10 @@ class App extends Component {
     const value = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
+    const target = e.target
+
     if (keyCode === ENTER) {
+      target.disabled = true
       ajax().get(`https://api.github.com/users/${value}`).then((result) => {
         this.setState({
           userInfo: {
@@ -33,6 +36,9 @@ class App extends Component {
           }
         })
       })
+        .always(() => {
+          target.disabled = false
+        })
     }
   }
 
